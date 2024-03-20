@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5em;
+}
+
+h1 {
+    color: rgb(45, 228, 167);
+    font-size: 3rem;
+}
+
+.game-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: 350px;
+    height: 350px;
+    align-items: center;
+    justify-items: center;
+}
+
+.game-grid::before,
+.game-grid::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 80px;
+    border-top: 8px solid;
+    border-bottom: 8px solid;
+    border-color: black;
+    padding: 1em 0;
+}
+
+.game-grid::before {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.game-grid::after {
+    transform: rotate(90deg);
+}
+
+.game-grid img {
+    position: relative;
+    z-index: 2;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    transition: .2s;
+    padding: 0.3em;
+    border: 3px solid transparent;
+    border-radius: 5px;
+}
+
+.game-grid img:hover {
+    border: 3px solid rgb(45, 228, 167);
+}
+
+button {
+    background-color: rgb(45, 228, 167);
+    color: white;
+    font-size: 1.2rem;
+    padding: 0.4em 1.2em;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: .2s;
+}
+
+button:hover {
+    background-color: rgb(38, 188, 138);
+}
