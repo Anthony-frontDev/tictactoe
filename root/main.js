@@ -39,6 +39,7 @@ function checkGame() {
         cells[1].id == "x" &&
         cells[2].id == "x") {
             setWinner("x");
+            return;
         }
     else if(cells[0].id == "o" &&
             cells[1].id == "o" &&
@@ -51,6 +52,7 @@ function checkGame() {
         cells[4].id == "x" &&
         cells[8].id == "x") {
             setWinner("x");
+            return;
         }
     else if(cells[0].id == "o" &&
             cells[4].id == "o" &&
@@ -63,6 +65,7 @@ function checkGame() {
         cells[3].id == "x" &&
         cells[6].id == "x") {
             setWinner("x");
+            return;
         }
     else if(cells[0].id == "o" &&
             cells[3].id == "o" &&
@@ -75,6 +78,7 @@ function checkGame() {
         cells[4].id == "x" &&
         cells[7].id == "x") {
             setWinner("x");
+            return;
         }
     else if(cells[1].id == "o" &&
             cells[4].id == "o" &&
@@ -87,6 +91,7 @@ function checkGame() {
         cells[4].id == "x" &&
         cells[6].id == "x") {
             setWinner("x");
+            return;
         }
     else if(cells[2].id == "o" &&
             cells[4].id == "o" &&
@@ -99,6 +104,7 @@ function checkGame() {
         cells[5].id == "x" &&
         cells[8].id == "x") {
             setWinner("x");
+            return;
         }
     else if(cells[2].id == "o" &&
             cells[5].id == "o" &&
@@ -111,6 +117,7 @@ function checkGame() {
         cells[4].id == "x" &&
         cells[5].id == "x") {
             setWinner("x");
+            return;
         }
     else if(cells[3].id == "o" &&
             cells[4].id == "o" &&
@@ -123,6 +130,7 @@ function checkGame() {
         cells[7].id == "x" &&
         cells[8].id == "x") {
             setWinner("x");
+            return;
         }
     else if(cells[6].id == "o" &&
             cells[7].id == "o" &&
@@ -130,21 +138,10 @@ function checkGame() {
                 setWinner("o");
                 return;
             }
-
-     // check for tie
-    let count = 0;
-
-    cells.forEach(cell => {
-        if(cell.style.pointerEvents == "none") {
-            count++;
-        }
-    });
-    
-    if(count === 9) {
-        count = 0;
-        label.textContent = "Tie!";
-        return;
+    else {
+        checkTie();
     }
+
 }
 
 function setWinner(winner) {
@@ -153,4 +150,18 @@ function setWinner(winner) {
     cells.forEach(cell => {
         cell.style.pointerEvents = "none";
     });
+}
+
+function checkTie() {
+    let count = 0;
+
+    cells.forEach(cell => {
+        if(cell.style.pointerEvents == "none") {
+        count++;
+    }
+    });
+
+    if(count === 9) {
+        label.textContent = "Tie!";
+    }
 }
