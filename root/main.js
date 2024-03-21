@@ -34,21 +34,6 @@ function reset() {
 
 function checkGame() {
 
-    // check for tie
-    let count = 0;
-
-    cells.forEach(cell => {
-        if(cell.style.pointerEvents == "none") {
-            count++;
-        }
-    });
-    
-    if(count === 9) {
-        count = 0;
-        label.textContent = "Tie!";
-        return;
-    }
-
     //check for win
     if(cells[0].id == "x" &&
         cells[1].id == "x" &&
@@ -145,6 +130,21 @@ function checkGame() {
                 setWinner("o");
                 return;
             }
+
+     // check for tie
+    let count = 0;
+
+    cells.forEach(cell => {
+        if(cell.style.pointerEvents == "none") {
+            count++;
+        }
+    });
+    
+    if(count === 9) {
+        count = 0;
+        label.textContent = "Tie!";
+        return;
+    }
 }
 
 function setWinner(winner) {
